@@ -19,7 +19,7 @@
     <!-- CDP Support for Chrome 134 (for Chrome 135 compatibility) -->
     <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-devtools-v134</artifactId>
+    <artifactId>selenium-devtools-v135</artifactId>
     <version>4.31.0</version>
 </dependency>
 </dependencies>
