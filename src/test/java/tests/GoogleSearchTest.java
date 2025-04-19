@@ -22,6 +22,10 @@ public class GoogleSearchTest {
         driver.get("https://www.google.com");
         driver.findElement(By.name("q")).sendKeys("Jenkins CI/CD");
         driver.findElement(By.name("q")).submit();
+        
+        // Optionally wait to ensure results load
+        // Thread.sleep(2000); // Not best practice
+
         Assert.assertTrue(driver.getTitle().contains("Jenkins"));
     }
 
