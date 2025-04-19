@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class GoogleSearchTest {
 
@@ -12,22 +13,29 @@ public class GoogleSearchTest {
 
     @BeforeMethod
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "C:\\WebDrivers\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        WebDriverManager.chromedriver().setup();
+    driver = new ChromeDriver();
+    driver.manage().window().maximize();
     }
 
     @Test
-    public void testSearch() {
-        driver.get("https://www.google.com");
-        driver.findElement(By.name("q")).sendKeys("Jenkins CI/CD");
-        driver.findElement(By.name("q")).submit();
-        
-        // Optionally wait to ensure results load
-        // Thread.sleep(2000); // Not best practice
+public void testSearch() {
+    driver.get("https://www.google.com");
+    driver.findElement(By.name("q")).sendKeys("Jenkins CI/CD");
+    driver.findElement(By.name("q")).submit();
 
-        Assert.assertTrue(driver.getTitle().contains("Jenkins"));
+    // Wait briefly (bad practice but quick for testing)
+    try {
+        Thread.sleep(2000);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
     }
+
+    String title = driver.getTitle();
+    System.out.println("Page Title: " + title);
+
+    Assert.assertTrue(title.contains("Jenkins"), "Expected title to contain 'Jenkins'");
+}
 
     @AfterMethod
     public void tearDown() {
