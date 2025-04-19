@@ -8,20 +8,20 @@
   <artifactId>Web_Test</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <dependencies>
+  dependencies>
     <!-- Selenium Core -->
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
-        <version>4.17.0</version>
+        <version>4.31.0</version>
     </dependency>
 
     <!-- CDP Support for Chrome 134 (for Chrome 135 compatibility) -->
     <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-devtools-v134</artifactId>
-        <version>4.17.0</version>
-    </dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-devtools-v134</artifactId>
+    <version>4.31.0</version>
+</dependency>
 </dependencies>
 
 
